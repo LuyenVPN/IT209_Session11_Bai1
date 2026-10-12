@@ -13,16 +13,14 @@ jobs:
       - name: Checkout mã nguồn
         uses: actions/checkout@v5
 
-      - name: Thiết lập môi trường Java JDK 17
+      - name: Thiết lập Java JDK 17
         uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
 
       - name: Cấp quyền cho Gradle Wrapper
-        working-directory: Bai3/inventory-service
         run: chmod +x gradlew
 
-      - name: Thực thi JUnit Test với Gradle
-        working-directory: Bai3/inventory-service
+      - name: Chạy unit test
         run: ./gradlew test
